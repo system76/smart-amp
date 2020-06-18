@@ -21,4 +21,9 @@ impl I2CDev {
         self.0.smbus_write_byte_data(reg, value)
             .map_err(|err| format!("{}\n{:#?}", err, err))
     }
+
+    pub fn write_block_at(&mut self, reg: u8, values: &[u8]) -> Result<(), String> {
+        self.0.smbus_write_block_data(reg, values)
+            .map_err(|err| format!("{}\n{:#?}", err, err))
+    }
 }

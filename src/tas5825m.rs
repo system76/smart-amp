@@ -25,6 +25,10 @@ impl Tas5825m {
         self.0.write_at(reg, value)
     }
 
+    pub fn write_block_at(&mut self, reg: u8, values: &[u8]) -> Result<(), String> {
+        self.0.write_block_at(reg, values)
+    }
+
     pub fn get_book(&mut self) -> Result<u8, String> {
         self.set_page(0x00)?;
         self.read_at(0x7F)
