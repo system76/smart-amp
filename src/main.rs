@@ -4,6 +4,8 @@ use smart_amp::{
 };
 use std::{
     process,
+    thread,
+    time::Duration,
 };
 
 fn dump_page(amp: &mut Tas5825m, book: u8, page: u8) -> Result<(), String> {
@@ -1117,7 +1119,7 @@ fn load() -> Result<(), String> {
 }
 
 fn main() {
-    match dump() {
+    match load() {
         Ok(()) => (),
         Err(err) => {
             eprintln!("smart-amp: {}", err);
