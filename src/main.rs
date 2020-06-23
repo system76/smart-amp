@@ -5,8 +5,12 @@ use smart_amp::{
 use std::{
     process,
     thread,
-    time::Duration,
+    time,
 };
+
+fn delay_ms(millis: u64) {
+    thread::sleep(time::Duration::from_millis(millis));
+}
 
 fn dump_page(amp: &mut Tas5825m, book: u8, page: u8) -> Result<(), String> {
     println!("book {:02X}", book);
@@ -90,7 +94,7 @@ fn load() -> Result<(), String> {
         amp.write_at(0x03, 0x02)?;
     }
 
-    thread::sleep(Duration::from_millis(5));
+    delay_ms(5);
 
     amp.set_page(0x00)?;
     amp.set_page(0x00)?;
@@ -1095,8 +1099,8 @@ fn load() -> Result<(), String> {
         amp.write_at(0x78, 0x80)?;
     }
 
-    //TODO: smaller delay
-    thread::sleep(Duration::from_millis(2000));
+    //TODO: smaller delay?
+    delay_ms(2000);
 
     {
         // Page 0
@@ -1104,8 +1108,8 @@ fn load() -> Result<(), String> {
         amp.write_at(0x03, 0x03)?;
     }
 
-    //TODO: smaller delay
-    thread::sleep(Duration::from_millis(4500));
+    //TODO: smaller delay, second time needed?
+    delay_ms(4500);
 
     amp.set_book(0x00)?;
 
@@ -1119,7 +1123,7 @@ fn load() -> Result<(), String> {
 }
 
 fn main() {
-    match load() {
+    match dump() {
         Ok(()) => (),
         Err(err) => {
             eprintln!("smart-amp: {}", err);
