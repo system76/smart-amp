@@ -25,8 +25,12 @@ impl Tas5825m {
         self.0.write_at(reg, value)
     }
 
+    //TODO: use i2c block write
     pub fn write_block_at(&mut self, reg: u8, values: &[u8]) -> Result<(), String> {
-        self.0.write_block_at(reg, values)
+        for (i, value) in values.iter().enumerate() {
+            self.write_at(reg + i as u8, *value)?;
+        }
+        Ok(())
     }
 
     pub fn get_book(&mut self) -> Result<u8, String> {

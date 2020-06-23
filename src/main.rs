@@ -8,7 +8,7 @@ use std::{
     time,
 };
 
-fn delay_ms(millis: u64) {
+fn mdelay(millis: u64) {
     thread::sleep(time::Duration::from_millis(millis));
 }
 
@@ -94,7 +94,7 @@ fn load() -> Result<(), String> {
         amp.write_at(0x03, 0x02)?;
     }
 
-    delay_ms(5);
+    mdelay(5);
 
     amp.set_page(0x00)?;
     amp.set_page(0x00)?;
@@ -1100,7 +1100,7 @@ fn load() -> Result<(), String> {
     }
 
     //TODO: smaller delay?
-    delay_ms(2000);
+    mdelay(2000);
 
     {
         // Page 0
@@ -1109,7 +1109,7 @@ fn load() -> Result<(), String> {
     }
 
     //TODO: smaller delay, second time needed?
-    delay_ms(4500);
+    mdelay(4500);
 
     amp.set_book(0x00)?;
 
