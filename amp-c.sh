@@ -51,7 +51,7 @@ function s {
     shift
     case "$reg" in
         "0x00")
-            p page "amp.set_page($@);\n"
+            p page "amp_set_page($@);\n"
             page="$@"
             ;;
         "0x7F")

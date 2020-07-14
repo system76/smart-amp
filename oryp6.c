@@ -20,7 +20,7 @@
 int tas5825m_setup(struct device * dev) {
 	int res = 0;
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x00);
 
@@ -32,7 +32,7 @@ int tas5825m_setup(struct device * dev) {
 		amp_write_at(0x64, 0x03);
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x00);
 
@@ -43,12 +43,12 @@ int tas5825m_setup(struct device * dev) {
 		amp_write_at(0x01, 0x11);
 	}
 
-	amp.set_page(0x00);
-	amp.set_page(0x00);
-	amp.set_page(0x00);
-	amp.set_page(0x00);
-	amp.set_page(0x00);
-	amp.set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x00);
 
@@ -58,7 +58,7 @@ int tas5825m_setup(struct device * dev) {
 		amp_write_at(0x46, 0x11);
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 	{
 		amp_write_at(0x02, 0x00);
 		amp_write_at(0x53, 0x00);
@@ -67,16 +67,16 @@ int tas5825m_setup(struct device * dev) {
 		amp_write_at(0x03, 0x02);
 	}
 
-	amp.set_page(0x00);
-	amp.set_page(0x00);
-	amp.set_page(0x00);
-	amp.set_page(0x00);
-	amp.set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
 	{
 		amp_write_at(0x29, 0x00);
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x00);
 
@@ -86,11 +86,11 @@ int tas5825m_setup(struct device * dev) {
 		amp_write_at(0x03, 0x12);
 	}
 
-	amp.set_page(0x00);
-	amp.set_page(0x00);
-	amp.set_page(0x00);
-	amp.set_page(0x00);
-	amp.set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x00);
 
@@ -100,11 +100,11 @@ int tas5825m_setup(struct device * dev) {
 		amp_write_at(0x48, 0x0C);
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x64);
 
-	amp.set_page(0x01);
+	amp_set_page(0x01);
 	{
 		amp_write_block_at(0x08, {
 			0x00, 0xFE, 0x00, 0x40, 0x00, 0xFC, 0x00, 0x00,
@@ -132,7 +132,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x02);
+	amp_set_page(0x02);
 	{
 		amp_write_block_at(0x08, {
 			0x02, 0x70, 0x00, 0x06, 0x02, 0x78, 0x00, 0x05,
@@ -160,7 +160,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x03);
+	amp_set_page(0x03);
 	{
 		amp_write_block_at(0x08, {
 			0xF0, 0x1C, 0x11, 0xAC, 0xF0, 0x1F, 0x11, 0xAD,
@@ -188,7 +188,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x04);
+	amp_set_page(0x04);
 	{
 		amp_write_block_at(0x08, {
 			0xF0, 0x1F, 0x51, 0xBC, 0x86, 0xA1, 0x01, 0xC5,
@@ -216,7 +216,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x05);
+	amp_set_page(0x05);
 	{
 		amp_write_block_at(0x08, {
 			0xE0, 0x00, 0x00, 0x00, 0x80, 0x07, 0x00, 0x83,
@@ -244,7 +244,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x06);
+	amp_set_page(0x06);
 	{
 		amp_write_block_at(0x08, {
 			0xE0, 0x10, 0x31, 0xC7, 0x86, 0xC9, 0x01, 0x9E,
@@ -272,7 +272,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x07);
+	amp_set_page(0x07);
 	{
 		amp_write_block_at(0x08, {
 			0xE0, 0x80, 0x60, 0x00, 0x84, 0x82, 0x40, 0xE0,
@@ -300,7 +300,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x08);
+	amp_set_page(0x08);
 	{
 		amp_write_block_at(0x08, {
 			0x02, 0x78, 0x00, 0x03, 0xE2, 0x6A, 0xF1, 0xC3,
@@ -328,7 +328,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x09);
+	amp_set_page(0x09);
 	{
 		amp_write_block_at(0x08, {
 			0x80, 0x27, 0x80, 0xEB, 0x84, 0x5B, 0x03, 0x3F,
@@ -356,7 +356,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x0A);
+	amp_set_page(0x0A);
 	{
 		amp_write_block_at(0x08, {
 			0x08, 0x00, 0x50, 0x48, 0xE0, 0x10, 0x11, 0xBD,
@@ -384,7 +384,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x0B);
+	amp_set_page(0x0B);
 	{
 		amp_write_block_at(0x08, {
 			0x84, 0xA2, 0x04, 0x0B, 0x84, 0xD2, 0x50, 0x01,
@@ -412,7 +412,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x0C);
+	amp_set_page(0x0C);
 	{
 		amp_write_block_at(0x08, {
 			0x84, 0x00, 0x04, 0x06, 0xE0, 0x81, 0x71, 0xA9,
@@ -440,7 +440,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x0D);
+	amp_set_page(0x0D);
 	{
 		amp_write_block_at(0x08, {
 			0x02, 0xC2, 0x60, 0x00, 0x84, 0xA0, 0x61, 0x00,
@@ -465,11 +465,11 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x78);
 
-	amp.set_page(0x18);
+	amp_set_page(0x18);
 	{
 		amp_write_block_at(0x30, {
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -478,11 +478,11 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x78);
 
-	amp.set_page(0x1B);
+	amp_set_page(0x1B);
 	{
 		amp_write_block_at(0x6C, {
 			0x00, 0x00, 0x03, 0x80, 0x00, 0x00, 0x04, 0x00,
@@ -491,7 +491,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x1C);
+	amp_set_page(0x1C);
 	{
 		amp_write_block_at(0x08, {
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -500,11 +500,11 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x78);
 
-	amp.set_page(0x1C);
+	amp_set_page(0x1C);
 	{
 		amp_write_block_at(0x1C, {
 			0x00, 0x00, 0x03, 0x30, 0x00, 0x00, 0x00, 0x00,
@@ -517,11 +517,11 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x78);
 
-	amp.set_page(0x1C);
+	amp_set_page(0x1C);
 	{
 		amp_write_block_at(0x3C, {
 			0x00, 0x00, 0x03, 0x38, 0x00, 0x00, 0x00, 0x00,
@@ -531,11 +531,11 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x78);
 
-	amp.set_page(0x1C);
+	amp_set_page(0x1C);
 	{
 		amp_write_block_at(0x54, {
 			0x00, 0x00, 0x03, 0x40, 0x00, 0x00, 0x03, 0x48,
@@ -548,11 +548,11 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x78);
 
-	amp.set_page(0x1C);
+	amp_set_page(0x1C);
 	{
 		amp_write_block_at(0x74, {
 			0x00, 0x00, 0x03, 0x58, 0x00, 0x00, 0x03, 0x60,
@@ -560,7 +560,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x1D);
+	amp_set_page(0x1D);
 	{
 		amp_write_block_at(0x08, {
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -569,11 +569,11 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x78);
 
-	amp.set_page(0x1D);
+	amp_set_page(0x1D);
 	{
 		amp_write_block_at(0x1C, {
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -586,11 +586,11 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x78);
 
-	amp.set_page(0x1D);
+	amp_set_page(0x1D);
 	{
 		amp_write_block_at(0x3C, {
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -609,18 +609,18 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x1E);
+	amp_set_page(0x1E);
 	{
 		amp_write_block_at(0x08, {
 			0x00, 0x00, 0x00, 0x00
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x78);
 
-	amp.set_page(0x1E);
+	amp_set_page(0x1E);
 	{
 		amp_write_block_at(0x0C, {
 			0x00, 0x00, 0x03, 0x68, 0x00, 0x00, 0x00, 0x00,
@@ -630,11 +630,11 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x78);
 
-	amp.set_page(0x1E);
+	amp_set_page(0x1E);
 	{
 		amp_write_block_at(0x24, {
 			0x00, 0x00, 0x03, 0x70, 0x00, 0x00, 0x03, 0x78,
@@ -647,11 +647,11 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x78);
 
-	amp.set_page(0x1E);
+	amp_set_page(0x1E);
 	{
 		amp_write_block_at(0x44, {
 			0x00, 0x00, 0x04, 0x88, 0x00, 0x00, 0x04, 0x90,
@@ -659,11 +659,11 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x8C);
 
-	amp.set_page(0x0E);
+	amp_set_page(0x0E);
 	{
 		amp_write_block_at(0x5C, {
 			0x00, 0xA7, 0x26, 0x4A, 0x7F, 0xFF, 0xFF, 0xFF,
@@ -676,7 +676,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x0F);
+	amp_set_page(0x0F);
 	{
 		amp_write_block_at(0x08, {
 			0x07, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00,
@@ -704,7 +704,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x10);
+	amp_set_page(0x10);
 	{
 		amp_write_block_at(0x08, {
 			0x00, 0x89, 0xA0, 0x27, 0x7F, 0xEC, 0x56, 0xD5,
@@ -714,7 +714,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x00);
 
@@ -724,7 +724,7 @@ int tas5825m_setup(struct device * dev) {
 		amp_write_at(0x40, 0x00);
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x00);
 
@@ -736,28 +736,28 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x01);
+	amp_set_page(0x01);
 	{
 		amp_write_at(0x51, 0x05);
 	}
 
-	amp.set_page(0x02);
+	amp_set_page(0x02);
 	{
 		amp_write_at(0x19, 0xDF);
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x8C);
 
-	amp.set_page(0x01);
+	amp_set_page(0x01);
 	{
 		amp_write_block_at(0x2C, {
 			0x00, 0x71, 0x94, 0x9A
 		});
 	}
 
-	amp.set_page(0x0A);
+	amp_set_page(0x0A);
 	{
 		amp_write_block_at(0x64, {
 			0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -767,7 +767,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x0B);
+	amp_set_page(0x0B);
 	{
 		amp_write_block_at(0x08, {
 			0x00, 0x80, 0x00, 0x00, 0x00, 0x37, 0xDF, 0xC0,
@@ -782,7 +782,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x0E);
+	amp_set_page(0x0E);
 	{
 		amp_write_block_at(0x5C, {
 			0x00, 0x03, 0x69, 0xC5, 0x00, 0x60, 0x3F, 0x2A,
@@ -791,7 +791,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x0F);
+	amp_set_page(0x0F);
 	{
 		amp_write_block_at(0x5C, {
 			0x7F, 0xF9, 0x2C, 0x60, 0x04, 0x1A, 0xB4, 0xF9,
@@ -799,7 +799,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x07);
+	amp_set_page(0x07);
 	{
 		amp_write_block_at(0x64, {
 			0x00, 0x80, 0x00, 0x00
@@ -810,11 +810,11 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0xAA);
 
-	amp.set_page(0x01);
+	amp_set_page(0x01);
 	{
 		amp_write_block_at(0x30, {
 			0x08, 0x10, 0x92, 0xFE, 0xF0, 0x84, 0x2F, 0xC0,
@@ -835,7 +835,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x02);
+	amp_set_page(0x02);
 	{
 		amp_write_block_at(0x08, {
 			0x08, 0x13, 0x8A, 0xBF, 0xF0, 0x78, 0x40, 0xD7,
@@ -863,7 +863,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x03);
+	amp_set_page(0x03);
 	{
 		amp_write_block_at(0x08, {
 			0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -891,7 +891,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x04);
+	amp_set_page(0x04);
 	{
 		amp_write_block_at(0x08, {
 			0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -919,7 +919,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x05);
+	amp_set_page(0x05);
 	{
 		amp_write_block_at(0x08, {
 			0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -947,7 +947,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x06);
+	amp_set_page(0x06);
 	{
 		amp_write_block_at(0x08, {
 			0x08, 0x49, 0x93, 0xE5, 0xF0, 0x43, 0x4D, 0x1F,
@@ -961,7 +961,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x0E);
+	amp_set_page(0x0E);
 	{
 		amp_write_block_at(0x6C, {
 			0x00, 0x99, 0xF7, 0x27, 0xFF, 0x09, 0x5A, 0xB9,
@@ -970,7 +970,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x0F);
+	amp_set_page(0x0F);
 	{
 		amp_write_block_at(0x08, {
 			0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -991,7 +991,7 @@ int tas5825m_setup(struct device * dev) {
 		});
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x00);
 
@@ -1005,7 +1005,7 @@ int tas5825m_setup(struct device * dev) {
 		amp_write_at(0x03, 0x0B);
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x00);
 
@@ -1016,7 +1016,7 @@ int tas5825m_setup(struct device * dev) {
 		amp_write_at(0x03, 0x03);
 	}
 
-	amp.set_page(0x00);
+	amp_set_page(0x00);
 
 	amp_set_book(0x00);
 
