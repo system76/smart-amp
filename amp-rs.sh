@@ -1,5 +1,11 @@
 set -e
 
+if [ ! -f "$1" ]
+then
+    echo "$0 [amp.txt]" >&2
+    exit 1
+fi
+
 book="0x00"
 page="0x00"
 function s {
@@ -32,7 +38,7 @@ function s {
     esac
 }
 
-cat amp.txt | while read line
+cat "$1" | while read line
 do
     s $line
 done
