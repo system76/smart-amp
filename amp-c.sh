@@ -92,12 +92,14 @@ function s {
 }
 
 cat <<"EOF"
-#include <delay.h>
+/* SPDX-License-Identifier: GPL-2.0-only */
+
 #include <drivers/i2c/tas5825m/tas5825m.h>
 
 #define R(F) { \
 	res = F; \
-	if (res < 0) return res; \
+	if (res < 0) \
+		return res; \
 }
 
 #define amp_write_at(A, V) R(tas5825m_write_at(dev, A, V))
