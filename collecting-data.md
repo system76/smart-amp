@@ -50,14 +50,14 @@ Copy the output from the Logic 2 terminal to a new file named `<board>.txt` in
 the repo. Parse the output into the format expected by the other scripts.
 
 ```
-./parse.sh <board>.txt
+./parse.sh data/<board>.txt
 ```
 
 Use the `amp-c.sh` and `amp-rs.sh` scripts to generate the C and Rust files.
 
 ```
-./amp-c.sh <board>.txt > <board>.c
-./amp-rs.sh <board>.txt > <board>.rs
+./amp-c.sh data/<board>.txt > data/<board>.c
+./amp-rs.sh data/<board>.txt > data/<board>.rs
 ```
 
 ## Adding to coreboot

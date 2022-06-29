@@ -8,26 +8,26 @@ then
     exit 1
 fi
 
-page="0x00"
+page="00"
 function s {
     reg="$1"
     shift
 
-    if [[ "$reg" = "0x00" ]]
+    if [[ "$reg" = "00" ]]
     then
-        echo -en "\tres = tas5825m_set_page(dev, $@);\n"
+        echo -en "\tres = tas5825m_set_page(dev, 0x$@);\n"
         echo -en "\tif (res < 0)\n"
         echo -en "\t\treturn res;\n\n"
         page="$@"
-    elif [[ "$page" = "0x00" && "$reg" = "0x7F" ]]
+    elif [[ "$page" = "00" && "$reg" = "7F" ]]
     then
-        echo -en "\tres = tas5825m_set_book(dev, $@);\n"
+        echo -en "\tres = tas5825m_set_book(dev, 0x$@);\n"
         echo -en "\tif (res < 0)\n"
         echo -en "\t\treturn res;\n\n"
     else
         if [[ "$#" = "1" ]]
         then
-            echo -en "\tres = tas5825m_write_at(dev, $reg, $@);\n"
+            echo -en "\tres = tas5825m_write_at(dev, 0x$reg, 0x$@);\n"
             echo -en "\tif (res < 0)\n"
             echo -en "\t\treturn res;\n\n"
         else
@@ -42,7 +42,7 @@ function s {
                 else
                     echo -n ", "
                 fi
-                echo -n "$arg"
+                echo -n "0x$arg"
                 i="$(("$i" + 1))"
                 if [[ "$i" = "8" ]]
                 then
@@ -51,7 +51,7 @@ function s {
                 fi
             done
             echo -en "\n\t\t};\n"
-            echo -en "\t\tres = tas5825m_write_block_at(dev, $reg, values, ARRAY_SIZE(values));\n"
+            echo -en "\t\tres = tas5825m_write_block_at(dev, 0x$reg, values, ARRAY_SIZE(values));\n"
             echo -en "\t\tif (res < 0)\n"
             echo -en "\t\t\treturn res;\n"
             echo -en "\t}\n\n"
