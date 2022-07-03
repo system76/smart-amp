@@ -10,6 +10,10 @@ int tas5825m_setup(struct device *dev, int id)
 	if (res < 0)
 		return res;
 
+	res = tas5825m_set_page(dev, 0x00);
+	if (res < 0)
+		return res;
+
 	res = tas5825m_set_book(dev, 0x00);
 	if (res < 0)
 		return res;
@@ -1052,14 +1056,13 @@ int tas5825m_setup(struct device *dev, int id)
 	if (res < 0)
 		return res;
 
-	{
-		const uint8_t values[] = {
-			0x00, 0x00
-		};
-		res = tas5825m_write_block_at(dev, 0x53, values, ARRAY_SIZE(values));
-		if (res < 0)
-			return res;
-	}
+	res = tas5825m_write_at(dev, 0x53, 0x00);
+	if (res < 0)
+		return res;
+
+	res = tas5825m_write_at(dev, 0x54, 0x00);
+	if (res < 0)
+		return res;
 
 	res = tas5825m_set_page(dev, 0x00);
 	if (res < 0)
@@ -1546,34 +1549,6 @@ int tas5825m_setup(struct device *dev, int id)
 		return res;
 
 	res = tas5825m_write_at(dev, 0x03, 0x03);
-	if (res < 0)
-		return res;
-
-	res = tas5825m_set_page(dev, 0x00);
-	if (res < 0)
-		return res;
-
-	res = tas5825m_set_book(dev, 0x00);
-	if (res < 0)
-		return res;
-
-	res = tas5825m_write_at(dev, 0x78, 0x80);
-	if (res < 0)
-		return res;
-
-	res = tas5825m_set_page(dev, 0x00);
-	if (res < 0)
-		return res;
-
-	res = tas5825m_set_book(dev, 0x00);
-	if (res < 0)
-		return res;
-
-	res = tas5825m_write_at(dev, 0x60, 0x00);
-	if (res < 0)
-		return res;
-
-	res = tas5825m_write_at(dev, 0x64, 0x02);
 	if (res < 0)
 		return res;
 
